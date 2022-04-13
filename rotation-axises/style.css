@@ -34,10 +34,11 @@ body {
 .rotate {
   height: 100%;
   flex: 1;
-  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid red;
+  background-color: aquamarine;
 }
 
 .rotate-x {
