@@ -14,3 +14,21 @@ body {
   height: 100vh;
   flex-direction: column;
 }
+
+.container {
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.glass {
+  background-color: #fff;
+  width: 50%;
+  height: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow:  7px 7px 14px #f2f2f2,
+               -7px -7px 14px #ffffff;
+}
