@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="error"></div>
+      <div>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div>
+        <input type="email" name="email" id="email" />
+      </div>
+      <input type="submit" name="submit" id="submit" />
+    </form>
+
+    <div>
+      <button id="log">Log All Users</button>
+    </div>
+
+    <div>
+      <div class="not-found"></div>
+      <input type="text" id="search" />
+      <button id="sbtn">search</button>
+    </div>
+
+    <script>
+      const users = new Map();
+      const selectOne = (selector) => document.querySelector(selector);
+
+      const form = selectOne("form");
+      const nameInput = selectOne("#name");
+      const emailInput = selectOne("#email");
+      const searchEmailInput = selectOne("#search");
+
+      const logUserBtn = selectOne("#log");
+      const searchBtn = selectOne("#sbtn");
+
+      const errorDiv = selectOne(".error");
+
+      /** controllers **/
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const name = nameInput.value;
+        const email = emailInput.value;
+
+        if (users.has(email)) {
+          return (errorDiv.textContent =
+            "Users with this email already exists");
+        }
+        errorDiv.textContent = ""
+        users.set(email, { name, email });
+        logUserBtn.textContent = `Log All User ${users.size}`;
+      };
+
+      const handleLogUsers = () => {
+        for (let [key, value] of users.entries()) {
+          console.log(key, value);
+        }
+      };
+
+      const handleLogAUser = () => {
+          const email = searchEmailInput.value;
+          if(users.has(email)) {
+              console.log(users.get(email))
+          } else {
+              console.log('user not found')
+          }
+      }
+
+      /** event listeners ***/
+
+      form.addEventListener("submit", handleSubmit);
+      logUserBtn.addEventListener("click", handleLogUsers);
+      searchBtn.addEventListener("click", handleLogAUser);
+    </script>
+  </body>
+</html>
