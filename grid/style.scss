@@ -108,4 +108,56 @@ body {
             }
         }
     }
+
+    &_three {
+        background-color: aquamarine;
+
+        &--content {
+            grid-column: 7 / -1;
+            background-color: red;
+            height: var(--section-height);
+            @include flex-center();
+        }
+
+        &--img {
+            grid-column: 1 / 7;
+            background-color: green;
+            height: var(--section-height);
+            @include flex-center();
+        }
+    }
+
+    &_four {
+        background-color: crimson;
+
+        &-box {
+            background-color: white;
+            height: 120px;
+            @include flex-center();
+
+            &--1 {
+                grid-column: 2 / 4;
+            }
+
+            &--2 {
+                grid-column: 4 / 6;
+
+            }
+
+            &--3 {
+                grid-column: 6 / 8;
+
+            }
+
+            &--4 {
+                grid-column: 8 / 10;
+
+            }
+
+            &--5 {
+                grid-column: 10 / 12;
+            }
+        }
+    }
+
 }
