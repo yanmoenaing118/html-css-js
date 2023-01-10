@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --size: 50vh;
+  --rotation: 45deg;
+  --perspective: 400px;
+  --move: 100;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animate {
+  animation-duration: 3s;;
+  animation-timing-function: steps(360);
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.panel {
+  width: var(--size);
+  height: var(--size);
+  position: absolute;
+  box-shadow: 0 20px 20px rgba(#000,0.2);
+
+  &__red {
+    background-color: rgba(255, 0, 0, 0.691);
+    transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateY(0deg);
+    animation-name: animateRed;
+  }
+
+  &__green {
+    background-color: rgba(0, 128, 0, 0.187);
+    transform: perspective(1000px) translateZ(calc(1px * var(--move)));
+    animation-name: animateGreen;
+  }
+
+  &__blue {
+    background-color: rgba(0, 0, 255, 0.204);
+    transform: perspective(1000px) translateZ(calc(1px * var(--move)));
+    animation-name: animateBlue;
+  }
+}
+
+@keyframes animateRed {
+    to {
+        transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateY(360deg);
+    }
+}
+
+@keyframes animateGreen {
+    to {
+        transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateX(360deg);
+    }
+}
+
+@keyframes animateBlue {
+    to {
+        transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateZ(360deg);
+    }
+}
+
+
+@keyframes rotateY {
+  to {
+    transform: rotateY(var(--rotation));
+  }
+}
+
+@keyframes rotateYWithPerspective {
+  to {
+    transform: perspective(var(--perspective)) rotateY(var(--rotation));
+  }
+}
