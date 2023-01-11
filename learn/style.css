@@ -5,9 +5,9 @@
 }
 
 :root {
-  --size: 50vh;
+  --size: 20vh;
   --rotation: 45deg;
-  --perspective: 400px;
+  --perspective: 300px;
   --move: 100;
 }
 
@@ -20,59 +20,57 @@ body {
   justify-content: center;
 }
 
-.animate {
-  animation-duration: 3s;
-  animation-timing-function: steps(360);
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+.scene {
+  height: var(--size);
+  width: var(--size);
+  position: relative;
+  backface-visibility: visible;
+  perspective: var(--perspective);
+}
+
+.cube {
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
 }
 
 .panel {
-  width: var(--size);
   height: var(--size);
+  width: var(--size);
   position: absolute;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
-}
-.panel__red {
-  background-color: rgba(255, 0, 0, 0.691);
-  transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateY(0deg);
-  animation-name: animateRed;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
 }
 .panel__green {
-  background-color: rgba(0, 128, 0, 0.187);
-  transform: perspective(1000px) translateZ(calc(1px * var(--move)));
-  animation-name: animateGreen;
+  background-color: hsla(120deg, 53%, 60%, 0.446);
+  transform: rotate(0deg) translateZ(50px);
 }
-.panel__blue {
-  background-color: rgba(0, 0, 255, 0.204);
-  transform: perspective(1000px) translateZ(calc(1px * var(--move)));
-  animation-name: animateBlue;
+.panel__red {
+  background-color: hsla(0deg, 56%, 45%, 0.127);
+  transform: rotateY(50deg) translateX(-100px);
+}
+.panel__top {
+  background-color: hsla(240deg, 100%, 60%, 0.49);
+  transform: rotateX(0);
+}
+.panel__bottom {
+  background-color: hsla(308deg, 53%, 60%, 0.446);
+  transform: rotateX(180deg);
 }
 
-@keyframes animateRed {
-  to {
-    transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateY(360deg);
-  }
+.animate {
+  animation-name: rotateYAxis;
+  animation-duration: 3s;
+  animation-timing-function: steps(360);
+  animation-iteration-count: infinite;
 }
-@keyframes animateGreen {
+
+@keyframes rotateYAxis {
   to {
-    transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateX(360deg);
-  }
-}
-@keyframes animateBlue {
-  to {
-    transform: perspective(1000px) translateZ(calc(1px * var(--move))) rotateZ(360deg);
-  }
-}
-@keyframes rotateY {
-  to {
-    transform: rotateY(var(--rotation));
-  }
-}
-@keyframes rotateYWithPerspective {
-  to {
-    transform: perspective(var(--perspective)) rotateY(var(--rotation));
+    transform: rotateY(360deg) translateZ(100px);
   }
 }
 
