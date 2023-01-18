@@ -13,9 +13,11 @@
     <style>
         .box {
             box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-            padding: 1rem;
+            padding: .56rem;
             background-color: var(--bs-white);
             color: var(--bs-gray-800);
+            height: 100%;
+            border-radius: 3px;
         }
 
         .section {
@@ -28,6 +30,16 @@
 
         .section-two{
             background-color: rgb(var(--bs-dark-rgb));
+        }
+
+        .section-three {
+            background-color: lightgray;
+        }
+
+        img {
+            max-width: 100%;
+            width: 100%;
+            object-fit: cover;
         }
     </style>
   </head>
@@ -42,7 +54,7 @@
     <div class="container-xxl">.container-xxl >= 1400px </div> -->
 
     <div class="section section-one">
-        <div class="container mb-4">
+        <div class="container-xl">
             <h4>Equal Width Columns</h4>
             <div class="row gx-5 gy-3 text-center">
                 <div class="col-12 col-sm-6 col-md-4 col-xl-3">
@@ -62,9 +74,9 @@
     </div>
 
     <div class="section section-two">
-        <div class="container mb-4">
+        <div class="container-xl">
             <h4 class="text-white">Unequal Width Columns</h4>
-            <div class="row gx-5">
+            <div class="row gx-5 gy-3">
                 <div class="col-sm-3 col-md-4">
                     <div class="box">
                         Sider Bar
@@ -78,6 +90,27 @@
             </div>
         </div>
     </div>
+
+    <section class="section section-three">
+        <div class="container-xl">
+            <h4>Variable width content</h4>
+            <div class="row justify-content-sm-center gy-3 gx-1">
+                <div class="col-md-2 col-lg-3">
+                    <div class="box">One</div>
+                </div>
+                <div class="col-md-auto">
+                    <div class="box">
+                        Go Youn Jung - My only love on the planent earth
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <div class="box">
+                        <img src="http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSVaqsq_S7LQsyYtZLBo0QQsqrYBUZBOCI7g3QxirQOOWD7dju83P6cJGtLMoZBuqhcf3JMxX06-RpUJCI" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <script
