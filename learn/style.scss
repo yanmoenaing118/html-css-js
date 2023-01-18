@@ -82,20 +82,20 @@ body {
   position: relative;
   transform-style: preserve-3d;
   animation-name: spin;
-  animation-duration: 10s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
   animation-direction: alternate-reverse;
-  animation-timing-function: steps(360);
+  animation-timing-function: ease-in-out;
 }
 
 
 @keyframes spin {
   from {
-    transform: rotateY(360deg) translateZ(100px) rotateX(360deg);
+    transform: rotateY(360deg) translateY(100%) rotateX(360deg);
   }
 
   to{
-    transform: rotateY(-360deg) translateZ(-100px) rotateX(-360deg);
+    transform: rotateY(-360deg) translateY(-100%) rotateX(-360deg);
   }
 }
 
