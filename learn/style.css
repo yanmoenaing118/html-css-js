@@ -43,6 +43,7 @@ img {
   justify-content: center;
   perspective: var(--perspective);
   position: relative;
+  overflow: hidden;
 }
 
 .cube {
@@ -64,19 +65,25 @@ img {
 }
 .cube__face--front {
   transform: translateZ(calc(var(--width) / 2 * 1px));
-  background-color: hsl(0deg, 66%, 52%);
+  background-color: hsla(0deg, 66%, 52%, 0.573);
 }
 .cube__face--back {
   transform: translateZ(calc(var(--width) / 2 * -1px));
-  background-color: hsl(51deg, 60%, 58%);
+  background-color: hsla(51deg, 60%, 58%, 0.696);
+}
+.cube__face--back > div {
+  transform: rotateY(180deg);
 }
 .cube__face--left {
   transform: rotateY(90deg) translateZ(calc(var(--width) / 2 * -1px));
-  background-color: rgb(91, 221, 91);
+  background-color: rgba(91, 221, 91, 0.65);
+}
+.cube__face--left > div {
+  transform: rotateY(180deg);
 }
 .cube__face--right {
   transform: rotateY(90deg) translateZ(calc(var(--width) / 2 * 1px));
-  background-color: pink;
+  background-color: rgba(255, 192, 203, 0.688);
 }
 .cube__face--top {
   transform: rotateX(90deg) translateZ(calc(var(--width) / 2 * 1px));
@@ -96,32 +103,23 @@ img {
 
 @keyframes rotateY90degree {
   from {
-    transform: rotateY(0);
+    transform: translateY(-50vh) rotateY(45deg) rotateX(90deg);
   }
   to {
-    transform: rotateY(90deg);
+    transform: translateY(0) rotateY(90deg) rotateX(0deg);
   }
 }
 @keyframes rotateY180degree {
-  from {
-    transform: rotateY(90deg);
-  }
   to {
     transform: rotateY(180deg);
   }
 }
 @keyframes rotateY270degree {
-  from {
-    transform: rotateY(180deg);
-  }
   to {
     transform: rotateY(270deg);
   }
 }
 @keyframes rotateY360degree {
-  from {
-    transform: rotateY(270deg);
-  }
   to {
     transform: rotateY(360deg);
   }
