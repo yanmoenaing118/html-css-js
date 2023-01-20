@@ -10,43 +10,41 @@
   <body>
    
     <div class="scene">
-      <div class="cube animateYRotation">
-        <div class="cube__face cube__face--front">Front</div>
-        <div class="cube__face cube__face--back">back</div>
-        <div 
-        class="cube__face cube__face--left">left</div>
-        <div class="cube__face cube__face--right">right</div>
-
-        <div class="cube__face cube__face--top">Top</div>
-        <div class="cube__face cube__face--bottom">Bottom</div>
+      <div class="cube animate">
+        <div class="cube__face cube__face--front">
+          <div>front</div>
+        </div>
+        <div class="cube__face cube__face--back">
+          <div>back</div>
+        </div>
+        <div class="cube__face cube__face--left">
+          <div>left</div>
+        </div>
+        <div class="cube__face cube__face--right">
+          <div>right</div>
+        </div>
+        <div class="cube__face cube__face--top">
+          <div>top</div>
+        </div>
+        <div class="cube__face cube__face--bottom">
+          <div>bottom</div>
+        </div>
       </div>
     </div>
 
-    <div class="scene">
-      <div class="cube animateYRotation">
-        <div class="cube__face cube__face--front">Front</div>
-        <div class="cube__face cube__face--back">back</div>
-        <div 
-        class="cube__face cube__face--left">left</div>
-        <div class="cube__face cube__face--right">right</div>
+    <script>
 
-        <div class="cube__face cube__face--top">Top</div>
-        <div class="cube__face cube__face--bottom">Bottom</div>
-      </div>
-    </div>
-
-    <div class="scene">
-      <div class="cube animateYRotation">
-        <div class="cube__face cube__face--front">Front</div>
-        <div class="cube__face cube__face--back">back</div>
-        <div 
-        class="cube__face cube__face--left">left</div>
-        <div class="cube__face cube__face--right">right</div>
-
-        <div class="cube__face cube__face--top">Top</div>
-        <div class="cube__face cube__face--bottom">Bottom</div>
-      </div>
-    </div>
+      const cube  = document.querySelector('.cube');
+      cube.addEventListener('animationend', (e) => {
+        const { animationName } = e;
+        if(animationName === "rotateY360degree") {
+          cube.classList.remove("animate");
+          setTimeout(() => {
+            cube.classList.add("animate");
+          })
+        }
+      })
+    </script>
 
   </body>
 </html>
