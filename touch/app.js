@@ -1,3 +1,8 @@
+/**
+ * TODO: 
+ * 1. check touch move direction - left, right, up, down
+ */
+
 function startup() {
     const el = document.getElementById('container');
     el.addEventListener('touchstart', handleStart);
