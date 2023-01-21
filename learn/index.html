@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learn Transform in Depth</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-   
-    <div class="scene">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn Transform in Depth</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="scene">
+    <div class="cube animateYRotation">
+      <div class="cube__face cube__face--front"></div>
+      <div class="cube__face cube__face--back"></div>
+      <div class="cube__face cube__face--left"></div>
+      <div class="cube__face cube__face--right"></div>
+
+      <div class="cube__face cube__face--top">Top</div>
+      <div class="cube__face cube__face--bottom">Bottom</div>
+    </div>
+  </div>
+
+  <!-- <div class="scene">
       <div class="cube animateYRotation">
         <div class="cube__face cube__face--front">Front</div>
         <div class="cube__face cube__face--back">back</div>
@@ -33,21 +46,33 @@
         <div class="cube__face cube__face--top">Top</div>
         <div class="cube__face cube__face--bottom">Bottom</div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="scene">
-      <div class="cube animateYRotation">
-        <div class="cube__face cube__face--front">Front</div>
-        <div class="cube__face cube__face--back">back</div>
-        <div 
-        class="cube__face cube__face--left">left</div>
-        <div class="cube__face cube__face--right">right</div>
+  <script>
+    const body = document.body;
+    const cube = document.querySelector('.cube');
+    body.addEventListener('touchmove', handleMove);
+    body.addEventListener('touchend', () => {
+      cube.classList.add('animateYRotation')
+    })
 
-        <div class="cube__face cube__face--top">Top</div>
-        <div class="cube__face cube__face--bottom">Bottom</div>
-      </div>
-    </div>
+    function handleMove(e) {
+      cube.classList.remove('animateYRotation')
 
-  </body>
+      const touches = e.changedTouches;
+
+      const keys = Object.keys(touches);
+      const values = Object.values(touches);
+
+      keys.forEach((k) => {
+        const x = values[k].pageX;
+        const dirameter = 100;
+        const degree = (x / (dirameter * Math.PI)) * 360;
+        console.log(degree);
+        cube.style.transform = `rotateY(${degree}deg)`;
+      });
+    }
+  </script>
+</body>
+
 </html>
-
