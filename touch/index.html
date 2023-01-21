@@ -8,34 +8,29 @@
 
 
     <style>
-        #container {
-            width: 300px;
-            height: 300px;
-            border: 2px solid brown;
+        
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
         .box {
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
             background-color: gold;
             box-shadow: 0 3px 5px rgba(0,0,0,0.1);
             border-radius: 50%;
-            position: absolute;
-            top:0;
-            left: 0;
+            margin: 50px;
             transform: all 5ms ease-in;
-            transform: translate(-50%,-50%);
-    
+            perspective: 400px;
+            transform-style: preserve-3d;
         }
     </style>
 </head>
 <body>
-    <h1>Touch Event</h1>
 
-
-    <div id="container">
-        <div class="box"></div>
-    </div>
+    <div class="box"></div>
 
     <script src="app.js"></script>
 </body>
