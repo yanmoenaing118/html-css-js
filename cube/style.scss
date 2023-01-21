@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --w: 200;
+    --h: 100;
+    --width: calc(var(--w) * 1px);
+    --height: calc(var(--h) * 1px);
+    --size: 200;
+}
+
+@mixin flex-center(){ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+body {
+    height: 100vh;
+    @include flex-center();
+}
+
+.scene {
+    width: var(--width);
+    height: var(--height);
+    @include flex-center();
+    perspective: var(--perspective);
+}
+
+.cube {
+    width: var(--width);
+    height: var(--height);
+    position: relative;
+    &__face {
+        @include flex-center();
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        &--front {}
+        &--back {}
+
+        &--left{}
+        &--right {}
+
+        &--bottom {}
+        &--top {}
+    }
+}
+
