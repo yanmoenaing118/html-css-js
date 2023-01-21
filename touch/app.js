@@ -2,6 +2,8 @@
  * TODO: 
  * 1. check touch move direction - left, right, up, down
  */
+const ball = document.querySelector('.box');
+
 
 function startup() {
     const el = document.getElementById('container');
@@ -16,6 +18,17 @@ function startup() {
 
   function handleStart(e) {
     console.log('touchstart');
+    const touches = e.changedTouches;
+
+    const keys = Object.keys(touches);
+    const values = Object.values(touches);
+
+    keys.forEach( k => {
+        console.log(values[k])
+        ball.style.left = `${values[k].pageX}px`
+        ball.style.top = `${values[k].pageY}px`
+    })
+
 
   }
 
@@ -30,7 +43,6 @@ function startup() {
 
   function handleMove(e) {
     const touches = e.changedTouches;
-    const ball = document.querySelector('.box');
 
     const keys = Object.keys(touches);
     const values = Object.values(touches);
@@ -39,6 +51,7 @@ function startup() {
         console.log(values[k])
         ball.style.left = `${values[k].pageX}px`
         ball.style.top = `${values[k].pageY}px`
+
     })
 
 
