@@ -10,6 +10,7 @@
   --width: calc(var(--w) * 1px);
   --height: calc(var(--h) * 1px);
   --size: 200;
+  --perspective: 400px;
 }
 
 body {
@@ -32,14 +33,60 @@ body {
   width: var(--width);
   height: var(--height);
   position: relative;
+  transform-style: preserve-3d;
+  transform-origin: 25% 25%;
 }
 .cube__face {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid gray;
   width: 100%;
   height: 100%;
   position: absolute;
+}
+.cube__face--front {
+  background-color: cyan;
+}
+.cube__face--back {
+  transform: translateZ(calc(var(--h) * -1px));
+  background-color: brown;
+}
+.cube__face--left {
+  width: 50%;
+  background-color: green;
+  transform-origin: left;
+  transform: rotateY(90deg);
+}
+.cube__face--right {
+  width: 50%;
+  background-color: red;
+  transform-origin: left;
+  transform: rotateY(90deg) translateZ(var(--width));
+}
+.cube__face--top {
+  background-color: pink;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+.cube__face--bottom {
+  transform-origin: bottom;
+  background-color: gold;
+  transform: rotateX(90deg);
+}
+
+.animate {
+  animation-name: rotateY;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes rotateY {
+  to {
+    transform: translateX(50%) rotateY(360deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
