@@ -7,8 +7,10 @@
 :root {
   --w: 200;
   --h: 100;
+  --d: 50;
   --width: calc(var(--w) * 1px);
   --height: calc(var(--h) * 1px);
+  --depth: calc(var(--d) * 1px);
   --size: 200;
   --perspective: 400px;
 }
@@ -34,7 +36,6 @@ body {
   height: var(--height);
   position: relative;
   transform-style: preserve-3d;
-  transform-origin: 25% 25%;
 }
 .cube__face {
   display: flex;
@@ -46,33 +47,30 @@ body {
   position: absolute;
 }
 .cube__face--front {
-  background-color: cyan;
+  background-color: rgba(81, 139, 139, 0.419);
+  transform: translateZ(calc(var(--h) / 2 * 1px));
 }
 .cube__face--back {
-  transform: translateZ(calc(var(--h) * -1px));
-  background-color: brown;
+  background-color: rgba(165, 42, 42, 0.429);
+  transform: translateZ(calc(var(--h) / 2 * -1px));
 }
 .cube__face--left {
-  width: 50%;
-  background-color: green;
-  transform-origin: left;
-  transform: rotateY(90deg);
+  width: calc(var(--width) / 2);
+  background-color: rgba(0, 128, 0, 0.525);
+  transform: rotateY(90deg) translateZ(calc(var(--w) / 4 * 3px));
 }
 .cube__face--right {
-  width: 50%;
-  background-color: red;
-  transform-origin: left;
-  transform: rotateY(90deg) translateZ(var(--width));
+  width: calc(var(--width) / 2);
+  background-color: rgba(255, 0, 0, 0.49);
+  transform: rotateY(90deg) translateZ(calc(var(--w) / 4 * -1px));
 }
 .cube__face--top {
-  background-color: pink;
-  transform-origin: top;
-  transform: rotateX(-90deg);
+  background-color: rgba(255, 192, 203, 0.542);
+  transform: rotateX(90deg) translateZ(calc(var(--h) / 2 * 1px));
 }
 .cube__face--bottom {
-  transform-origin: bottom;
-  background-color: gold;
-  transform: rotateX(90deg);
+  background-color: rgba(255, 217, 0, 0.443);
+  transform: rotateX(90deg) translateZ(calc(var(--h) / 2 * -1px));
 }
 
 .animate {
@@ -85,7 +83,7 @@ body {
 
 @keyframes rotateY {
   to {
-    transform: translateX(50%) rotateY(360deg);
+    transform: rotateY(360deg);
   }
 }
 
