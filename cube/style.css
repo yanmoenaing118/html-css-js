@@ -48,19 +48,23 @@ body {
 }
 .cube__face--front {
   background-color: rgba(81, 139, 139, 0.419);
+  height: var(--depth);
   transform: translateZ(calc(var(--h) / 2 * 1px));
 }
 .cube__face--back {
   background-color: rgba(165, 42, 42, 0.429);
+  height: var(--depth);
   transform: translateZ(calc(var(--h) / 2 * -1px));
 }
 .cube__face--left {
   width: calc(var(--width) / 2);
+  height: var(--depth);
   background-color: rgba(0, 128, 0, 0.525);
   transform: rotateY(90deg) translateZ(calc(var(--w) / 4 * 3px));
 }
 .cube__face--right {
   width: calc(var(--width) / 2);
+  height: var(--depth);
   background-color: rgba(255, 0, 0, 0.49);
   transform: rotateY(90deg) translateZ(calc(var(--w) / 4 * -1px));
 }
@@ -70,7 +74,7 @@ body {
 }
 .cube__face--bottom {
   background-color: rgba(255, 217, 0, 0.443);
-  transform: rotateX(90deg) translateZ(calc(var(--h) / 2 * -1px));
+  transform: rotateX(90deg);
 }
 
 .animate {
@@ -79,11 +83,12 @@ body {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  animation-fill-mode: forwards;
 }
 
 @keyframes rotateY {
   to {
-    transform: rotateY(360deg);
+    transform: rotateY(360deg) rotateZ(360deg);
   }
 }
 
