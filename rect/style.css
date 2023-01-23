@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: aquamarine;
+  margin-top: 100px;
+}
+
+#areaOne {
+  max-width: 1200px;
+  margin: auto;
+  height: 80vh;
+  background-color: gray;
+  overflow-y: auto;
+  flex: 1;
+}
+
+#areaTwo {
+  max-width: 1200px;
+  margin: auto;
+  height: 80vh;
+  background-color: gray;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.section-one {
+  height: 90%;
+}
+.section-one--1 {
+  background-color: palegoldenrod;
+}
+.section-one--2 {
+  background-color: goldenrod;
+}
+.section-one--3 {
+  background-color: aquamarine;
+}
+
+.section-two {
+  height: 90%;
+}
+.section-two--1 {
+  background-color: blueviolet;
+}
+.section-two--2 {
+  background-color: red;
+}
+.section-two--3 {
+  background-color: greenyellow;
+}
+.section-two--4 {
+  background-color: aquamarine;
+}
+
+/*# sourceMappingURL=style.css.map */
