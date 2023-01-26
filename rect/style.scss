@@ -1,74 +1,58 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @mixin center() {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body {
-    display: flex;
+  @include center();
+  height: 100vh;
 }
 
-
-.box {
-    width: 200px;
-    height: 200px;
-    background-color: aquamarine;
-    margin-top: 100px;
+main {
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 5px 5px rgba(#000, 0.1);
+  overflow-y: auto;
 }
 
+.meta {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(#000,0.1);
+}
 
-#areaOne {
-    max-width: 1200px;
-    margin: auto;
-    height: 80vh;
+.section {
+    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  &-one {
+    background-color: red;
+  }
+  &-two {
     background-color: gray;
-    overflow-y: auto;
-    flex: 1;
 
-}
-
-#areaTwo {
-    max-width: 1200px;
-    margin: auto;
-    height: 80vh;
-    background-color: gray;
-    overflow-y: auto;
-    flex: 1;
-
-}
-
-.section-one {
-    height: 90%;
-    &--1 {
-        background-color: palegoldenrod;
+    @include center();
+    .circle {
+        ----scaleBy: 1;
+      width: 250px;
+      height: 250px;
+      background-color: white;
+      border-radius: 50%;
+    //   opacity: 0;
+      transform: scale(0);
+      transition: all 1000ms ease-in-out;
     }
-    &--2 {
-        background-color: goldenrod;
-    }
-    &--3 {
-        background-color: aquamarine;
-    }
-}
-
-.section-two {
-    height: 90%;
-    &--1 {
-        background-color: blueviolet;
-    }
-    &--2 {
-        background-color: red;
-    }
-    &--3 {
-        background-color: greenyellow;
-    }
-    &--4 {
-        background-color: aquamarine;
-
-    }
+  }
+  &-three {
+    background-color: pink;
+  }
 }

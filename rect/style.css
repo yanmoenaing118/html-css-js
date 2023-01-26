@@ -6,60 +6,51 @@
 
 body {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: aquamarine;
-  margin-top: 100px;
-}
-
-#areaOne {
-  max-width: 1200px;
-  margin: auto;
-  height: 80vh;
-  background-color: gray;
+main {
+  width: 400px;
+  height: 400px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  flex: 1;
 }
 
-#areaTwo {
-  max-width: 1200px;
-  margin: auto;
-  height: 80vh;
-  background-color: gray;
-  overflow-y: auto;
-  flex: 1;
+.meta {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+.section {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
 .section-one {
-  height: 90%;
-}
-.section-one--1 {
-  background-color: palegoldenrod;
-}
-.section-one--2 {
-  background-color: goldenrod;
-}
-.section-one--3 {
-  background-color: aquamarine;
-}
-
-.section-two {
-  height: 90%;
-}
-.section-two--1 {
-  background-color: blueviolet;
-}
-.section-two--2 {
   background-color: red;
 }
-.section-two--3 {
-  background-color: greenyellow;
+.section-two {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.section-two--4 {
-  background-color: aquamarine;
+.section-two .circle {
+  ----scaleBy: 1;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 1000ms ease-in-out;
+}
+.section-three {
+  background-color: pink;
 }
 
 /*# sourceMappingURL=style.css.map */
