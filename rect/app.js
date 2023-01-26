@@ -4,6 +4,11 @@ const main = document.querySelector("main")
 const react = document.querySelector('.section-two');
 const meta = document.querySelector('.meta');
 
+const wWidth = window.innerWidth;
+const wHeight = window.innerHeight;
+
+console.log(`width: ${wWidth}, height: ${wHeight}`)
+
 console.log(react);
 
 
