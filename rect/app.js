@@ -51,6 +51,7 @@ time: ${entry.time}
 
 }, {
   root: main,
+  rootMargin: "0px 0px 100px 0px",
   threshold: buildThreshold(100)
 })
 
