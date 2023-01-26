@@ -5,14 +5,8 @@
 }
 
 :root {
-    --w: 200;
-    --h: 100;
-    --d: 50;
-    --width: calc(var(--w) * 1px);
-    --height: calc(var(--h) * 1px);
-    --depth: calc(var(--d) * 1px);
-    --size: 200;
-    --perspective: 400px;
+    --width: 200px;
+    --height: 200px;
 }
 
 @mixin flex-center(){ 
@@ -25,71 +19,20 @@
 body {
     height: 100vh;
     @include flex-center();
+    overflow: hidden;
 }
 
-.scene {
+.box {
     width: var(--width);
     height: var(--height);
-    @include flex-center();
-    perspective: var(--perspective);
-}
-
-.cube {
-    width: var(--width);
-    height: var(--height);
-    position: relative;
+    background-color: greenyellow;
     transform-style: preserve-3d;
-
-    &__face {
-        @include flex-center();
-        border: 1px solid gray;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-
-        &--front {
-            background-color: rgba(81, 139, 139, 0.419);
-            transform: translateZ(calc(var(--h) / 2 * 1px));
-        }
-        &--back {
-            background-color: rgba(165, 42, 42, 0.429);
-            transform: translateZ(calc(var(--h) / 2 * -1px));
-        }
-
-        &--left{
-            width: calc(var(--width) / 2);
-            background-color: rgba(0, 128, 0, 0.525);
-            transform: rotateY(90deg) translateZ(calc(var(--w)/4 * 3px));
-        }
-        &--right {
-            width: calc(var(--width) / 2);
-            background-color: rgba(255, 0, 0, 0.49);
-            transform: rotateY(90deg) translateZ(calc(var(--w)/4 * -1px));
-        }
-
-        &--top {
-            background-color: rgba(255, 192, 203, 0.542);
-            transform: rotateX(90deg) translateZ(calc(var(--h) / 2 * 1px));
-        }
-
-        &--bottom {
-            background-color: rgba(255, 217, 0, 0.443);
-            transform: rotateX(90deg) translateZ(calc(var(--h) / 2 * -1px));
-        }
-   
-    }
+    perspective: 400px;
+    transform: scale3d(2,1,1);
+    transition: all 1s ease;
+    background-image: url(https://images.unsplash.com/photo-1673794784636-2e69436d3eee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2128&q=80);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.animate {
-    animation-name: rotateY;
-    animation-duration: 2s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-@keyframes rotateY {
-    to {
-        transform: rotateY(360deg);
-    }
-}

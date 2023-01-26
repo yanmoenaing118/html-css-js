@@ -10,16 +10,23 @@
 </head>
 
 <body>
-  <div class="scene">
-    <div class="cube animate">
-      <div class="cube__face cube__face--front">front</div>
-      <div class="cube__face cube__face--back">back</div>
-      <div class="cube__face cube__face--left">left</div>
-      <div class="cube__face cube__face--right">right</div>
-      <div class="cube__face cube__face--top">top</div>
-      <div class="cube__face cube__face--bottom">bottom</div>
-    </div>
-  </div>
+  <div class="box"></div>
+
+
+  <script>
+
+    const box = document.querySelector('.box');
+
+    let scaleFactor = 0.07;
+    let initH = 200;
+    setInterval(() => {
+      box.style.transform = `scale3d(${scaleFactor},${scaleFactor},1)`;
+     
+      box.style.height = `${initH}px`;
+      initH += 1;
+      scaleFactor += 0.07;
+    }, 100);
+  </script>
 </body>
 
 </html>
