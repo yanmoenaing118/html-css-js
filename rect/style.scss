@@ -6,7 +6,7 @@
 
 @mixin center() {
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
 }
 
@@ -24,9 +24,10 @@ main {
 
 .meta {
   position: fixed;
-  top:0;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 0 5px rgba(#000,0.1);
+  bottom: 0;
+  font-size: 12px;
 }
 
 .box {

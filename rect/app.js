@@ -35,6 +35,7 @@ intersectionRect: x:${intersectionRect.x}, y:${intersectionRect.y}, top:${inters
 rootBounds:${JSON.stringify(rootBounds)},
 
 ratio: ${interSectionRatio},
+time: ${entry.time}
       </pre>
       `
 

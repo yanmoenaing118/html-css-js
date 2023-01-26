@@ -6,7 +6,6 @@
 
 body {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 100vh;
 }
@@ -20,9 +19,10 @@ main {
 
 .meta {
   position: fixed;
-  top: 0;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  font-size: 12px;
 }
 
 .box {
@@ -48,7 +48,6 @@ footer {
 .section-two {
   background-color: gray;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 .section-two .circle {
