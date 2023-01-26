@@ -12,7 +12,10 @@ console.log(`width: ${wWidth}, height: ${wHeight}`)
 console.log(react);
 
 
-
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
 const observer = new IntersectionObserver(entries => {
 
   entries.forEach(entry => {
@@ -41,6 +44,9 @@ time: ${entry.time}
 
       // console.log(str);
       meta.innerHTML = str;
+
+      // console.log(fibonacci(Math.round(boundingClientRect.top)));
+      
   })
 
 }, {
