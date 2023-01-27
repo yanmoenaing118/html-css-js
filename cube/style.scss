@@ -21,18 +21,31 @@
 }
 
 body {
-  
+    overflow-x: hidden;
 }
 
 .section {
-    height: 80vh;
-    &_1 {
-        background-color: greenyellow;
+    height: 100vh;
+  &_1 {
+    background-color: greenyellow;
+  }
+  &_2 {
+  height: 105vh;
+
+    background-color: gold;
+    @include flex-center();
+    .circle {
+      width: 400px;
+      height: 400px;
+      background-color: white;
+      transform: translateX();
+      opacity: 0;
+      transition: all 1s ease-in-out;
+      @include flex-center();
+      border-radius: 50%;
     }
-    &_2 {
-        background-color: gold;
-    }
-    &_3 {
-        background-color: aquamarine;
-    }
+  }
+  &_3 {
+    background-color: aquamarine;
+  }
 }

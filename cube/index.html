@@ -11,14 +11,21 @@
   <body>
     <main class="container">
       <section class="section section_1">Section 1</section>
-      <section class="section section_2">Section 2</section>
+      <section class="section section_1">Section 1</section>
+      <section class="section section_2">
+        <div class="circle">
+          <h3>Go Youn Jung</h3>
+        </div>
+      </section>
+      <section class="section section_3">Section 3</section>
       <section class="section section_3">Section 3</section>
     </main>
 
     <script>
-      const section = document.querySelector('.section_2');
+      const section = document.querySelector(".section_2");
       let currentY = section.getBoundingClientRect().y;
       let prevY = section.getBoundingClientRect().y;
+      const circle = section.querySelector(".circle");
 
       const observer = new IntersectionObserver(
         (entries) => {
@@ -28,27 +35,53 @@
               isIntersecting,
               intersectionRatio,
               intersectionRect,
-              boundingClientRect
+              boundingClientRect,
             } = entry;
-            
+
             currentY = boundingClientRect.y;
 
             /***
              *  အောက်က content တွေမြင်ရအောင် scroll ဆွဲရင် scroll down
              *  အပေါ်က content တွေမြင်ရအောင် scroll ဆွဲရင် scroll up
              **/
-            if( currentY < prevY ) {
-              console.log('scrolling down')
-            } 
+            // if (currentY < prevY) {
+            //   console.log("scrolling down", intersectionRatio);
+            //   circle.style.transform = `scale(${intersectionRatio})`;
+            //   circle.style.opacity = intersectionRatio;
+            //   if (intersectionRatio < 1) {
+            //     circle.style.transform = `scale(1)`;
+            //     circle.style.opacity = 1;
+            //   } else {
+            //     circle.style.transform = `scale(${intersectionRatio})`;
+            //     circle.style.opacity = intersectionRatio;
+            //   }
+            // }
 
-            if( currentY > prevY ) {
-              console.log('scroll up')
+            // Intersection Observer is not good for scroll bound element because the callback won't be executed when the element is completely visible inside the root
+
+            if (intersectionRatio < 1) {
+              if (currentY < prevY) {
+                // down
+
+                circle.style.transform = `translateX(${
+                  intersectionRatio * 400
+                }px) scale(${intersectionRatio})`;
+                circle.style.opacity = intersectionRatio;
+              }
+
+              if (currentY > prevY) {
+                // up
+                console.log("scroll up", intersectionRatio);
+                circle.style.transform = `translateX(0) scale(1)`;
+                circle.style.opacity = 1;
+              }
             }
+
             prevY = currentY;
           });
         },
         {
-          threshold: buildThreshold(100),
+          threshold: buildThreshold(862),
         }
       );
 

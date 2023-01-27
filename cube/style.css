@@ -9,14 +9,34 @@
   --height: 200px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .section {
-  height: 80vh;
+  height: 100vh;
 }
 .section_1 {
   background-color: greenyellow;
 }
 .section_2 {
+  height: 105vh;
   background-color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.section_2 .circle {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  transform: translateX();
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 .section_3 {
   background-color: aquamarine;
