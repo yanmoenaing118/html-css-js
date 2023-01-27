@@ -33,6 +33,10 @@
             
             currentY = boundingClientRect.y;
 
+            /***
+             *  အောက်က content တွေမြင်ရအောင် scroll ဆွဲရင် scroll down
+             *  အပေါ်က content တွေမြင်ရအောင် scroll ဆွဲရင် scroll up
+             **/
             if( currentY < prevY ) {
               console.log('scrolling down')
             } 
