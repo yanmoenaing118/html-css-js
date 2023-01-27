@@ -93,6 +93,7 @@
       window.addEventListener(
         "scroll",
         trottle((e) => {
+          console.log(e);
           currentY = document.documentElement.scrollTop;
 
           if (currentY > prevY) {
@@ -108,7 +109,7 @@
       );
 
       function trottle(cb) {
-        return (e) => setTimeout(cb, 250);
+        return (e) => setTimeout(() => cb(e), 250);
       }
     </script>
   </body>
