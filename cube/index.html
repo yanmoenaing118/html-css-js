@@ -1,32 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>HTML, CSS, JavaScript</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>HTML, CSS, JavaScript</title>
-</head>
+  <body>
+    <main class="container">
+      <section class="section section_1">Section 1</section>
+      <section class="section section_2">Section 2</section>
+      <section class="section section_3">Section 3</section>
+    </main>
 
-<body>
-  <div class="box"></div>
+    <script>
+      const section = document.querySelector('.section_2');
+      let currentY = section.getBoundingClientRect().y;
+      let prevY = section.getBoundingClientRect().y;
 
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const {
+              target,
+              isIntersecting,
+              intersectionRatio,
+              intersectionRect,
+              boundingClientRect
+            } = entry;
+            
+            currentY = boundingClientRect.y;
 
-  <script>
+            if( currentY < prevY ) {
+              console.log('scrolling down')
+            } 
 
-    const box = document.querySelector('.box');
+            if( currentY > prevY ) {
+              console.log('scroll up')
+            }
+            prevY = currentY;
+          });
+        },
+        {
+          threshold: buildThreshold(100),
+        }
+      );
 
-    let scaleFactor = 0.07;
-    let initH = 200;
-    setInterval(() => {
-      box.style.transform = `scale3d(${scaleFactor},${scaleFactor},1)`;
-     
-      box.style.height = `${initH}px`;
-      initH += 1;
-      scaleFactor += 0.07;
-    }, 100);
-  </script>
-</body>
-
+      observer.observe(section);
+      function buildThreshold(steps) {
+        return new Array(steps).fill(0).map((_, idx) => idx / steps);
+      }
+    </script>
+  </body>
 </html>
