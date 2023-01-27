@@ -23,8 +23,8 @@
 
     <script>
       const section = document.querySelector(".section_2");
-      let currentY = section.getBoundingClientRect().y;
-      let prevY = section.getBoundingClientRect().y;
+      let currentY = document.documentElement.scrollTop;
+      let prevY = document.documentElement.scrollTop;
       const circle = section.querySelector(".circle");
 
       const observer = new IntersectionObserver(
@@ -85,9 +85,30 @@
         }
       );
 
-      observer.observe(section);
+      // observer.observe(section);
       function buildThreshold(steps) {
         return new Array(steps).fill(0).map((_, idx) => idx / steps);
+      }
+
+      window.addEventListener(
+        "scroll",
+        trottle((e) => {
+          currentY = document.documentElement.scrollTop;
+
+          if (currentY > prevY) {
+            console.log("Scroll DOWN");
+          }
+
+          if (currentY < prevY) {
+            console.log("Scroll UP");
+          }
+
+          prevY = currentY;
+        })
+      );
+
+      function trottle(cb) {
+        return (e) => setTimeout(cb, 250);
       }
     </script>
   </body>
