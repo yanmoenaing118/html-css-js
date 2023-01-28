@@ -3,35 +3,45 @@
     padding: 0;
 }
 
+body {
+    font-size: 3rem;
+    color: #fff;
+}
+
+
+.meta {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+    color: #000;
+    font-size: 12px;
+    padding: .1rem 1rem;
+}
+
 
 .section {
-    height: 100vh;
-    overflow-y: hidden;
-    position: relative;
+    height: 500px;
 
-    &-one {
+    &_1 {
         background-color: purple;
-        height: calc(100vh);
     }
 
-    &-two {
+    &_2 {
         background-color: orange;
+    }
 
-        .image {
-            height: 400px;
-            width: 100%;
-            background-size: 100%;
-            background-position: bottom;
-            background-image: linear-gradient(rgba(#fff, 0.5), rgba(#fff, 0.6)), url(https://images.unsplash.com/photo-1617170779628-bd335cb7e9de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80);
-            transition: all 2s ease-in-out;
-            
-        }
+    &_3 {
+        background-color: palegreen;
+    }
+    
+    &_4 {
+        background-color: chocolate;
+    }
 
-        h1 {
-            font-size: 42px;
-            text-align: center;
-            opacity: 0;
-        }
+    &_5 {
+        background-color: indigo;
     }
 }
+
 
