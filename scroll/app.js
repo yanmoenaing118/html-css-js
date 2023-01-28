@@ -7,7 +7,7 @@ const WINDOW_WIDTH = window.innerWidth;
 
 console.log(`
 WINDOW_WIDTH: ${WINDOW_WIDTH}
-WINDOW_HEIGHGT: ${ WINDOW_HEIGHT}
+WINDOW_HEIGHGT: ${WINDOW_HEIGHT}
 `);
 
 const target = document.querySelector(".section_3");
@@ -32,16 +32,23 @@ window.addEventListener("scroll", function (e) {
     right: targetRight,
     bottom: targetBotom,
     left: targetLeft,
-    height: targetHeight
+    height: targetHeight,
   } = target.getBoundingClientRect();
 
   const isIntersecting = targetBotom > 0;
-  
+
   const intersectingArea = WINDOW_HEIGHT - Math.abs(targetTop);
 
+  // Calculate the intersection width and height
+  const intersectionWidth =
+    Math.min(target.right, this.window.innerWidth) - Math.max(target.left, 0);
+  const intersectionHeight =
+    Math.min(target.bottom, this.window.innerHeight) - Math.max(target.top, 0);
 
-  // console.log(Math.abs(targetY - WINDOW_HEIGHT))
-  console.log(intersectingArea)
+  // Calculate the intersection ratio
+  const intersectionArea = intersectionWidth * intersectionHeight;
+  const elementArea = target.width * target.height;
+  const intersectionRatio = intersectionArea / elementArea;
 
   updateMeta({
     targetX,
@@ -51,7 +58,8 @@ window.addEventListener("scroll", function (e) {
     targetBotom,
     targetLeft,
     isIntersecting,
-    targetHeight
+    targetHeight,
+    intersectionRatio
   });
 });
 
@@ -68,7 +76,8 @@ function updateMeta(meta) {
   left: ${meta.targetLeft}
   height: ${meta.targetHeight}
   ---------------------
-  isIntersecting: ${meta.isIntersecting}
+  isIntersecting: ${meta.isIntersecting},
+  intersectionRatio: ${meta.intersectionRatio}
   </pre>
   
     `;
