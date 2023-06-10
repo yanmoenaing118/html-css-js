@@ -1,0 +1,19 @@
+p {
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 5px solid;
+  padding: 2rem;
+  /*
+      extrinsic width lead to overflow
+  */
+  width: 220px;
+}
+
+p[data-sizing=intrinsic] {
+  width: min-content;
+  background-color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

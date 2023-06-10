@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Learn CSS</title>
+</head>
+<body>
+    <div>
+        <label for="switch-intrinsic">Toggle Intrinsic</label>
+        <input type="checkbox" id="switch-intrinsic" />
+    </div>
+    <p>
+        GoYounJung is beautiful
+    </p>
+
+    <script>
+        const swith = document.querySelector('input[type=checkbox]');
+        const p = document.querySelector('p');
+        swith.addEventListener('change', () => {
+            p.setAttribute('data-sizing', swith.checked ? 'intrinsic': 'extrinsic')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "html-css",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000h\u0000t\u0000m\u0000l\u0000-\u0000c\u0000s\u0000s\u0000-\u0000j\u0000s\u0000\r\u0000 \u0000",
+  "main": "app.js",
+  "scripts": {
+    "start": "sass style.scss style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
